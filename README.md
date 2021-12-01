@@ -23,7 +23,7 @@ Additionally, we will be using a process called Test Driven Development, commonl
 
 ## Overview
 - Green tests are passing, red tests mean that the code is incomplete, inaccurate, missing, or you have a syntax error somewhere in your code.
-- Syntax errors in either the `tests.js` or the `code.js` file will keep things from running accurately. If you go from a page of many green tests to all red, there's likely a typo or syntax errors somewhere.
+- Syntax errors in either the `tests.js` or the `helloWorld.js` file will keep things from running accurately. If you go from a page of many green tests to all red, there's likely a typo or syntax errors somewhere.
 - The approach of writing tests before writing the code that passes is called Test-Driven Development, or TDD.
 - Writing small tests, like the ones provided, is called `unit testing`.
 - "Unit testing" means to test a piece of functionality as small as a single function. Testing entire applications from end-to-end is another topic.
@@ -62,28 +62,28 @@ Additionally, we will be using a process called Test Driven Development, commonl
     - If you're using command line, then execute the following command line command: `git clone git@github.com:your-github-username/intro-to-testing-js.git`.
 1. Once cloned to your projects directory, open up the project.
 1. Launch `report.html` in your browser. You should see a set of green tests for the `helloWorld` function.
-1. Refresh `report.html` to re-run new code in `test.js` or `code.js`. Do this any time the test or the implementation code changes.
+1. Refresh `report.html` to re-run new code in `test.js` or `helloWorld.js`. Do this any time the test or the implementation code changes.
 
 ### Project Structure
-- The `report.html` file is the test running tool. In this case, the HTML page is loading both the `tests.js` and `code.js` files.
-- The `tests.js` file contains the assertions that provide feedback on the appropriateness of the solutions in `code.js`.
-- The `code.js` file contains the implementation code. An "implementation" means the code that is meant to solve a problem, fix a bug, or add a feature.
+- The `report.html` file is the test running tool. In this case, the HTML page is loading both the `tests.js` and `helloWorld.js` files.
+- The `tests.js` file contains the assertions that provide feedback on the appropriateness of the solutions in `helloWorld.js`.
+- The `helloWorld.js` file contains the implementation code. An "implementation" means the code that is meant to solve a problem, fix a bug, or add a feature.
 
 ## Exercise #0 - look, guess, test, conclude
 
-1. Clone this repo to your projects folder following the "Getting Started" directions. Take a moment to orient yourself with the test runner, the existing tests, and the implementation inside of `code.js`.
+1. Clone this repo to your projects folder following the "Getting Started" directions. Take a moment to orient yourself with the test runner, the existing tests, and the implementation inside of `helloWorld.js`.
 
-1. Once you're setup and comfortable, go to `code.js` and change the name of the `helloWorld` function to `hello`. Then refresh `report.html` in your browser.
+1. Once you're setup and comfortable, go to `helloWorld.js` and change the name of the `helloWorld` function to `hello`. Then refresh `report.html` in your browser.
     - What do you notice about the test results?
     - What are some ways you think we could get the tests to turn green again?
-    - Set the function name in `code.js` back to `helloWorld` and re-run the tests.
+    - Set the function name in `helloWorld.js` back to `helloWorld` and re-run the tests.
     
-1. Inside of the `helloWorld` function in `code.js`, replace `return "Hello, World!"` with `return "Hello"`.
+1. Inside of the `helloWorld` function in `helloWorld.js`, replace `return "Hello, World!"` with `return "Hello"`.
     - Run the tests by refreshing `report.html` in your browser.
     - Which tests fail? Which tests are still green?
     - Set the implementation back to `return "Hello, World!"`
 
-1. Inside of the `helloWorld` function in `code.js`, change the line `return "Hello, World!"` to `console.log("Hello, World!")`. Then refresh `report.html`.
+1. Inside of the `helloWorld` function in `helloWorld.js`, change the line `return "Hello, World!"` to `console.log("Hello, World!")`. Then refresh `report.html`.
     - What happens to the tests? Identify which tests stay green and which ones turn red. 
     - Why do you think that is?
     - Consider, what is the return value of a `console.log`? *hint*, it's always the same
@@ -91,11 +91,11 @@ Additionally, we will be using a process called Test Driven Development, commonl
     - Fix your `helloWorld` implementation so that it greens all the tests.
 
 1. Now, let's purposefully put a syntax error into the `helloWorld` function, to see what happens with the tests. 
-    - Open up `code.js` and remove the closing curly brace from the end of the `helloWorld` function definition.
+    - Open up `helloWorld.js` and remove the closing curly brace from the end of the `helloWorld` function definition.
     - Refresh `report.html` in your browser.
     - Fix the syntax error and confirm that tests are all green.
 
-1. Now, go to `code.js` and replace the function statement for `helloWorld` with a function experession. Do all the tests stay green or not? Why or why not? Double check your syntax. These are interchangeable because functions are *first class* citizens in the JS language.
+1. Now, go to `helloWorld.js` and replace the function statement for `helloWorld` with a function experession. Do all the tests stay green or not? Why or why not? Double check your syntax. These are interchangeable because functions are *first class* citizens in the JS language.
 ```js
 // function statement syntax
 function helloWorld() {
@@ -122,7 +122,7 @@ const helloWorld = function() {
 Our next exercise is to follow the TDD workflow to develop incremental tests and solutions for testing a `sayHello()` function that takes in a name as an argument and returns a string that says hello to that name.
 - Step 1: Let's write the smallest test possible. Open up `tests.js`. Add a `describe`, an `it`, and an `expect` to assert that `sayHello` is a defined function. Use your tests for `helloWorld` as a guide.
 - Step 2: Run all the tests. At this point, we're expecting and *hoping* for a single, red failing test that we just now authored.
-- Step 3: Now, let's go to `code.js` and create an empty function definition for `sayHello`.
+- Step 3: Now, let's go to `helloWorld.js` and create an empty function definition for `sayHello`.
 - Step 4: Run all the tests. We're expecting all tests, including the new test for `sayHello` to be green.
 - Step 5: Given that this is our first (tiny) test and our first implementation, there is not yet the opportunity to refactor.
 - Step 6: The last TDD step is to "repeat" the process of adding another test. What we're going to do is add our work to git and then move to Exercise #2, which is to add the second test.
@@ -157,7 +157,7 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 ### Exercise #4 Add another small, simple test
 - Step 1:  In `tests.js`, assert that `sayHello("Alex")` returns `"Hello, Alex!"`. Our first test should be *super* simple and *super* small. This means that our next test should look like `expect(sayHello("Alex")).toBe("Hello, Alex!")`. 
 - Step 2: Run all tests and make sure that this newly added test is red.
-- Step 3: It's challenging not to jump to the "correct" answer already, but let's stay close to the TDD method. Write *just* enough code to green the test. This means making sure that the `sayHello` function definition inside of `code.js` takes an an input argument. If `input === "Alex"`, then we `return "Hello, Alex!"` else `return "Hello, Jane!"`. Don't get too fancy. A cornerstone of TDD is refactoring only once you have a handful of green tests, not just one or two with new inputs.
+- Step 3: It's challenging not to jump to the "correct" answer already, but let's stay close to the TDD method. Write *just* enough code to green the test. This means making sure that the `sayHello` function definition inside of `helloWorld.js` takes an an input argument. If `input === "Alex"`, then we `return "Hello, Alex!"` else `return "Hello, Jane!"`. Don't get too fancy. A cornerstone of TDD is refactoring only once you have a handful of green tests, not just one or two with new inputs.
 - Step 4: Run all tests, expecting that all are now green. Does each test turn green? If so, then we can proceed. We can't refactor unless we have greened a test, even with a hard-coded implementation.
 - Step 5: If you feel the urge to refactor already, hang on! Let's add one more test!
 - Step 6: Repeat the TDD cycle, so let's add another test in the next exercise.
@@ -179,7 +179,7 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 - In the TDD approach, refactoring is only possible if you have enough tests and enough code that all the tests are green. In this way, your tests provide a target for the refactor. If your refactoring fails tests that    
 
 ### Exercise #6 Implement the refactor!
-- Inside `sayHello` in `code.js`, what's a change you can identify that will improve the overall functioning of this function?
+- Inside `sayHello` in `helloWorld.js`, what's a change you can identify that will improve the overall functioning of this function?
 - Can you get the implmentation of `sayHello` down to a function with only one line of code inside?
 - If we have `return "Hello, " + input + "!";`, does this work for all names?
 - Does this bring up any other issues with other inputs?
@@ -196,11 +196,11 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 
 ### Exercise #8 "Repeat" step (where we look for additional tests to add)
 - First, in `tests.js`, add `expect(sayHello()).toBe("Hello, World!")`. Then refresh `report.html` to see the failing test.
-- Follow that by adding just enough code inside of the `sayHello` function `code.js` to green that latest test. Recommend checking if the input variable's value is `undefined`.
+- Follow that by adding just enough code inside of the `sayHello` function `helloWorld.js` to green that latest test. Recommend checking if the input variable's value is `undefined`.
 - Next, add `expect(sayHello(true)).toBe("Hello, World!")` to the `tests.js` file. Refresh to see the failing red test.
-- Add just enough code to `code.js` to green that latest test. `if (input === true)` then `return "Hello, World!"`
+- Add just enough code to `helloWorld.js` to green that latest test. `if (input === true)` then `return "Hello, World!"`
 - Now, add `expect(sayHello(false)).toBe("Hello, World!")` to the `tests.js` file. Refresh to see the failing test.
-- Add just enough code to `code.js` to green this test.
+- Add just enough code to `helloWorld.js` to green this test.
 - Once all the tests are green, identify refactor opportunities and refactor your solution.
 - Are there any other [edge cases](https://en.wikipedia.org/wiki/Edge_case) you want to write a test for? You have a green light to add more of your own tests to "drive" the implementation.
 - Some edge cases to consider. What if:
@@ -224,7 +224,7 @@ Our next exercise is to follow the TDD workflow to develop incremental tests and
 - Inside of `tests.js`, write a `describe` block for our new `isFive` function.
 - As your first, failing test, write an `it` and an `expect` asserting that a function named `isFive` exists.
 - Run the tests by refreshing `report.html` to show the red, failing test.
-- Write just enough code inside of `code.js` to define an empty function for `isFive`.
+- Write just enough code inside of `helloWorld.js` to define an empty function for `isFive`.
 - Now, refresh `report.html` to ensure that all tests are green.
 - What other tests and implementation cycles should you do for `isFive`?
     - Ensure that isFive returns a boolean no matter what the input
